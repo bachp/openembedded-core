@@ -79,6 +79,10 @@ do_install_append_class-native () {
     SYSROOT="${D}${base_prefix}" ${D}${sbindir}/update-ca-certificates
 }
 
-RDEPENDS_${PN} += "openssl"
+# This contains only the update script to be used without custom certificates
+PACKAGES =+ "${PN}-scripts"
+FILES_${PN}-scripts = "${sbindir}/ ${sysconfdir}/ca-certificates"
+RDEPENDS_${PN}-scripts += "openssl"
+RDEPENDS_${PN} += "${PN}-scripts"
 
 BBCLASSEXTEND = "native nativesdk"
