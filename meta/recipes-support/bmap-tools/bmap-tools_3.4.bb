@@ -14,7 +14,17 @@ SRCREV = "9dad724104df265442226972a1e310813f9ffcba"
 
 S = "${WORKDIR}/git"
 
-RDEPENDS_${PN} = "python-core python-compression python-mmap"
+RDEPENDS_${PN} = "\
+    python3-core \
+    python3-compression \
+    python3-argparse \
+    python3-shell \
+    python3-fcntl \
+    python3-threading \
+    python3-xml \
+    python3-subprocess \
+    python3-mmap \
+    "
 
 inherit python3native
 inherit setuptools3
